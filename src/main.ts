@@ -1,1 +1,2 @@
-console.log("Test");
+import { SorenSocket } from "@/socket/socket";
+new SorenSocket().initialize();
