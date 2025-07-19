@@ -1,0 +1,34 @@
+{
+  "name": "soren",
+  "version": "1.0.0",
+  "description": "Whatsapp bot automation with rich feature moderation, fun, utility, etc. Built under typescript.",
+  "main": "build/src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "dprint fmt --config dprint.json",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "Whatsapp",
+    "Bot",
+    "Automation"
+  ],
+  "author": {
+    "name": "Rizky Aulia Tumangger"
+  },
+  "license": "ISC",
+  "packageManager": "pnpm@10.10.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "acorn": "latest",
+    "dprint": "^0.50.1",
+    "eslint": "^9.31.0",
+    "husky": "^9.1.7",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.37.0"
+  }
+}
