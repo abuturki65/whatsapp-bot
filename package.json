@@ -5,6 +5,8 @@
   "main": "build/src/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node build/src/main",
+    "dev:watch": "tsx --watch src/main.ts",
     "format": "dprint fmt --config dprint.json",
     "prepare": "husky"
   },
@@ -23,6 +25,8 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.31.0",
+    "@types/node": "^24.0.15",
+    "@types/qrcode": "^1.5.5",
     "acorn": "latest",
     "dprint": "^0.50.1",
     "eslint": "^9.31.0",
@@ -30,5 +34,13 @@
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.37.0"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "baileys": "^6.7.18",
+    "pino": "^9.7.0",
+    "pino-pretty": "^13.0.0",
+    "pino-roll": "^3.1.0",
+    "qrcode": "^1.5.4"
   }
 }
