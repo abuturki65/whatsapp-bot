@@ -9,7 +9,6 @@
     "useBraces": "always",
     "bracePosition": "sameLineUnlessHanging",
     "singleBodyPosition": "nextLine",
-    "nextControlFlowPosition": "nextLine",
     "trailingCommas": "onlyMultiLine",
     "arrowFunction.useParentheses": "force",
     "spaceAround": false,
