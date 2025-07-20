@@ -26,5 +26,5 @@ export type SorenCommandMeta = {
 };
 
 export type SorenSocketType = {
-    commands?: Map<string, string | SorenCommandMeta["commandHandler"]>;
+    commands?: Map<string, string | SorenCommandMeta>;
 } & ReturnType<typeof makeWASocket>;

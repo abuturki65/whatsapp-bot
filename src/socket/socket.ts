@@ -15,8 +15,8 @@ import {
 } from "@/types/types";
 import { logger } from "@/lib/logger/logger";
 import { Boom } from "@hapi/boom";
-import { readdir } from "node:fs/promises";
 import path from "node:path";
+import { readdir } from "node:fs/promises";
 import { getEventHandlers } from "@/socket/events";
 
 export class SorenSocket {
@@ -66,7 +66,7 @@ export class SorenSocket {
         }
     }
 
-    public async commandDispatcher(): Promise<Map<string, SorenCommandMeta["commandHandler"]>> {
+    public async commandDispatcher(): Promise<Map<string, SorenCommandMeta>> {
         const commandPool = new Map();
 
         const commandDirectoryList = await readdir(
@@ -99,7 +99,7 @@ export class SorenSocket {
                         commandMetaObject.commandKey.forEach((commandKey) => {
                             commandPool.set(
                                 commandKey,
-                                commandParent ? commandParent : commandMetaObject.commandHandler,
+                                commandParent ? commandParent : commandMetaObject,
                             );
 
                             if (!commandParent) {
@@ -107,7 +107,7 @@ export class SorenSocket {
                             }
                         });
                     } else {
-                        commandPool.set(commandMetaObject.commandKey, commandMetaObject.commandHandler);
+                        commandPool.set(commandMetaObject.commandKey, commandMetaObject);
                     }
 
                     return commandPool;
