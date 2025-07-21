@@ -12,16 +12,16 @@ fi
 commit_prefix=$(echo "$commit_message" | grep -oE "$prefix_regex")
 
 case "$commit_prefix" in
-  feat)     commit_emoji="✨" ;;
-  fix)      commit_emoji="🐛" ;;
+  feat)     commit_emoji="💡" ;;
+  fix)      commit_emoji="🐞" ;;
   chore)    commit_emoji="🔧" ;;
   docs)     commit_emoji="📝" ;;
-  style)    commit_emoji="🎨" ;;
+  style)    commit_emoji="💄" ;;
   refactor) commit_emoji="♻️" ;;
   test)     commit_emoji="✅" ;;
   perf)     commit_emoji="⚡" ;;
-  ci)       commit_emoji="🤖" ;;
-  *)        commit_emoji="" ;;
+  ci)       commit_emoji="👷" ;;
+  *)        commit_emoji="🧩" ;;
 esac
 
 echo "$commit_emoji $commit_message" > "$1"
