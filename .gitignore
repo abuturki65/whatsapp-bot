@@ -15,3 +15,6 @@ logs
 
 # module lock
 *-lock.yaml
+
+# debug
+debug
