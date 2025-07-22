@@ -38,6 +38,7 @@
   "dependencies": {
     "@hapi/boom": "^10.0.1",
     "baileys": "^6.7.18",
+    "dotenv": "^17.2.0",
     "pino": "^9.7.0",
     "pino-pretty": "^13.0.0",
     "pino-roll": "^3.1.0",
