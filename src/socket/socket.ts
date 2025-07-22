@@ -18,6 +18,7 @@ import { Boom } from "@hapi/boom";
 import path from "node:path";
 import { readdir } from "node:fs/promises";
 import { getEventHandlers } from "@/socket/events";
+import { eventWrapper } from "@/utils/wrapper";
 
 export class SorenSocket {
     private sessionName: string;
@@ -37,14 +38,29 @@ export class SorenSocket {
             },
         };
 
-        const events = await getEventHandlers();
+        const waSocket = makeWASocket(socketConfiguration);
+        const commands = await this.commandDispatcher();
 
-        const socket: SorenSocketType = makeWASocket(socketConfiguration);
-        socket.commands = await this.commandDispatcher();
+        const socket: SorenSocketType = Object.assign({
+            config,
+            commands,
+        }, waSocket);
+
+        const events = await getEventHandlers();
 
         socket.ev.on("creds.update", saveCreds);
         socket.ev.on("connection.update", this.connectionHandler.bind(this));
-        events.forEach((ev) => socket.ev.on(ev.eventKey, ev.eventHandler(socket)));
+
+        events.forEach((ev) =>
+            socket.ev.on(
+                ev.eventKey,
+                eventWrapper(ev.eventHandler(
+                    socket,
+                )),
+            )
+        );
+
+        return socket;
     }
 
     public async connectionHandler(listener: BaileysEventMap["connection.update"]) {
