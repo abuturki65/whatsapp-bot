@@ -1,3 +1,4 @@
+import { config } from "@/config/config";
 import {
     MessageArea,
     MessageRoles,
@@ -26,5 +27,6 @@ export type SorenCommandMeta = {
 };
 
 export type SorenSocketType = {
-    commands?: Map<string, string | SorenCommandMeta>;
+    commands: Map<string, string | SorenCommandMeta>;
+    config: typeof config;
 } & ReturnType<typeof makeWASocket>;

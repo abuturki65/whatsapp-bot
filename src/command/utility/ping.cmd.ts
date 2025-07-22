@@ -7,12 +7,10 @@ import { SorenCommandMeta } from "@/types/types";
 
 const commandKey: string | string[] = ["ping", "p"];
 
-const commandRoles: MessageRoles[] = [
-    MessageRoles.General,
-];
+const commandRoles: MessageRoles[] = Object.values(MessageRoles);
 
 const commandArea: MessageArea[] = [
-    MessageArea.PersonalMessage,
+    MessageArea.GroupMessage,
 ];
 
 const commandMessageType: MessageType[] = [
