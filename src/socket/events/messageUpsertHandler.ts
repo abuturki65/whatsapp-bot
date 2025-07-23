@@ -96,7 +96,7 @@ const eventHandler = (socket: SorenSocketType) => async (listener: BaileysEventM
 
     /** When client received unsupported message type */
     if (!receivedMessageType) {
-        return;
+        throw new GeneralError("Client is received unsupported message type");
     }
 
     const messageMap = messageMapping[receivedMessageType];
@@ -131,7 +131,7 @@ const eventHandler = (socket: SorenSocketType) => async (listener: BaileysEventM
 
     /** When registered prefix is not match with prefix received */
     if (!socket.config.SOREN_COMMAND_PREFIX.includes(messagePrefix)) {
-        return;
+        return null;
     }
 
     /** When command is not registered */
