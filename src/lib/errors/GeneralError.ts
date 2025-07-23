@@ -1,18 +1,10 @@
-type CustomLogger = {
-    details?: boolean;
-    logger?: "debug" | "info" | "warn" | "error";
-};
+import { BaseErrorOptions } from "@/types/types";
+import { BaseError } from "./BaseError";
 
-class GeneralError extends Error {
-    public options: CustomLogger;
-
-    constructor(message: string, options?: CustomLogger) {
-        super(message);
-        this.name = "General Error";
-        this.options = options || {
-            details: false,
-            logger: "error",
-        };
+class GeneralError extends BaseError {
+    constructor(message: string, options?: BaseErrorOptions) {
+        super(message, options);
+        this.name = "GeneralError";
     }
 }
 

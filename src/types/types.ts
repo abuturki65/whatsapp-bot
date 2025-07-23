@@ -30,3 +30,8 @@ export type SorenSocketType = {
     commands: Map<string, string | SorenCommandMeta>;
     config: typeof config;
 } & ReturnType<typeof makeWASocket>;
+
+export type BaseErrorOptions = {
+    details?: boolean;
+    logger?: "debug" | "info" | "warn" | "error";
+};

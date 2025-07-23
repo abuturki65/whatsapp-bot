@@ -1,6 +1,5 @@
-import dotenv from "dotenv";
+import "dotenv/config";
 import path from "node:path";
-dotenv.config();
 
 const config = {
     /** General Configuration */

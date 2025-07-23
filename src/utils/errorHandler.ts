@@ -1,30 +1,14 @@
-import { GeneralError } from "@/lib/errors";
-import { logger } from "@/lib/logger/logger";
+import { BaseError } from "@/lib/errors/BaseError";
 
 /** Custom error handler */
 const errorHandler = (error: unknown) => {
-    if (error instanceof GeneralError) {
-        switch (error.options.logger) {
-            case "debug":
-                logger.debug(error.message);
-                break;
-            case "info":
-                logger.info(error.message);
-                break;
-            case "warn":
-                logger.warn(error.message);
-                break;
-            default:
-                logger.error(error.message);
-        }
-
+    if (error instanceof BaseError) {
+        error.log();
         if (error.options.details) {
             console.error(error);
         }
-    } else if (error instanceof Error) {
-        logger.error(error.message);
     } else {
-        console.log(error);
+        console.error(error);
     }
 };
 
