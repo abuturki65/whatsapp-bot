@@ -12,7 +12,7 @@
     "allowArbitraryExtensions": true,
     "allowJs": true,
     "inlineSourceMap": true,
-    "outDir": "./dist",
+    "outDir": "./build",
     "removeComments": true,
     "newLine": "crlf",
     "esModuleInterop": true,
