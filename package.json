@@ -6,6 +6,7 @@
   "scripts": {
     "dev:test": "tsx watch --test ./test/*.test.ts",
     "test": "tsx --test ./test/*.test.ts",
+    "build": "tsc --project tsconfig.json && resolve-tspaths",
     "start": "node build/src/main",
     "dev:watch": "tsx --watch src/main.ts",
     "format": "dprint fmt --config dprint.json",
@@ -33,6 +34,7 @@
     "dprint": "^0.50.1",
     "eslint": "^9.31.0",
     "husky": "^9.1.7",
+    "resolve-tspaths": "^0.8.23",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.37.0"
